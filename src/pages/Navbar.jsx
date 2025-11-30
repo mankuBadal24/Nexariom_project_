@@ -101,8 +101,8 @@ export default function Navbar() {
                       <a
                         href={item.href}
                         onClick={() => setActiveIdx(idx)}
-                        className={`px-4 py-2 text-sm font-medium rounded-md transition focus:outline-none focus:ring-0 ${
-                          activeIdx === idx ? "bg-[#cfe8ff] text-slate-900 shadow-sm" : "text-slate-700"
+                        className={`px-4 py-2 text-sm font-medium rounded-md transition focus:outline-none focus:ring-0 hover:bg-[#cfe8ff] hover:text-blue-400  ${
+                          activeIdx === idx ? "bg-[#cfe8ff] text-slate-900 shadow-sm hover:text-slate-900 " : "text-slate-700"
                         }`}
                         aria-current={activeIdx === idx ? "page" : undefined}
                       >
