@@ -5,7 +5,8 @@ import Navbar from "./Navbar"
 import ShopyByProduct from "./ShopyByProduct"
 import SubscribeNewsletter from "./SubscribeNewsletter"
 import Testimonials from "./Testimonials"
-
+import FeaturedProducts from "./FeaturedProducts"
+import SpecialOffers from "./SpecialOffers"
 
 
 export const Home = () => {
@@ -15,6 +16,8 @@ export const Home = () => {
       <div className="pt-20">
          <Hero />
          <ShopyByProduct/>
+         <FeaturedProducts/>
+         <SpecialOffers/>
          <Testimonials/>
          <GlobalShipping/>
          <SubscribeNewsletter/>
