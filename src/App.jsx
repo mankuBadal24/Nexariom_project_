@@ -1,9 +1,11 @@
-import './App.css'
 import { Home } from './pages/Home'
+import './App.css'
+import { Hero } from './components/ui/Hero'
 const App =() =>{
   return (
     <div>
-      <Home/>
+      <Home />
+      <Hero />
     </div>
   )
 }
