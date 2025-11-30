@@ -1,4 +1,5 @@
 import { Hero } from "../components/ui/Hero"
+import Footer from "./Footer"
 import GlobalShipping from "./GlobalShipping"
 import Navbar from "./Navbar"
 import ShopyByProduct from "./ShopyByProduct"
@@ -11,13 +12,14 @@ export const Home = () => {
   return (
     <div>
       <Navbar/>
-      <div className="py-20">
+      <div className="pt-20">
          <Hero />
          <ShopyByProduct/>
          <Testimonials/>
          <GlobalShipping/>
          <SubscribeNewsletter/>
       </div>
+      <Footer/>
     </div>
   )
 }
