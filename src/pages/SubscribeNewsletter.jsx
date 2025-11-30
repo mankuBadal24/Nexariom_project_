@@ -32,7 +32,7 @@ export const SubscribeNewsletter = () => {
 
           <button
             type="submit"
-            className="px-8 py-4 bg-slate-900 text-white rounded-r-xl cursor-pointer text-lg font-medium hover:bg-black transition"
+            className="px-8 py-4 bg-black text-white rounded-r-xl cursor-pointer text-lg font-medium hover:bg-gray-600 transition"
           >
             Subscribe
           </button>

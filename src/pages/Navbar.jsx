@@ -46,20 +46,18 @@ export default function Navbar() {
   /* Shared sheet header used inside every SheetContent so UI is consistent */
   const SheetHeader = () => (
     <div className="p-4 border-b flex items-center justify-between">
-      <h2 className="text-lg font-semibold">
-        Menu 
-      </h2>
+      <h2 className="text-lg font-semibold">Menu</h2>
 
-      <SheetClose asChild>
-       
-      </SheetClose>
+      <SheetClose asChild></SheetClose>
     </div>
   );
 
   return (
     <header
       className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-        scrolled ? "backdrop-blur bg-white/70 shadow-sm py-2" : "py-4 bg-gradient-to-b from-[#dbeefe] to-[#e6f7f0]"
+        scrolled
+          ? "backdrop-blur bg-white/70 shadow-sm py-2"
+          : "py-4 bg-gradient-to-b from-[#dbeefe] to-[#e6f7f0]"
       }`}
     >
       <nav className="max-w-[1400px] mx-auto px-4 ">
@@ -72,7 +70,12 @@ export default function Navbar() {
               transition={{ type: "spring", stiffness: 300, damping: 28 }}
               className="flex items-center"
             >
-              <img src={LOGO_URL} alt="Nexariom logo" className="w-25 h-15 object-contain" loading="lazy" />
+              <img
+                src={LOGO_URL}
+                alt="Nexariom logo"
+                className="w-25 h-15 object-contain"
+                loading="lazy"
+              />
             </motion.div>
           </a>
 
@@ -102,7 +105,9 @@ export default function Navbar() {
                         href={item.href}
                         onClick={() => setActiveIdx(idx)}
                         className={`px-4 py-2 text-sm font-medium rounded-md transition focus:outline-none focus:ring-0 hover:bg-[#cfe8ff] hover:text-blue-400  ${
-                          activeIdx === idx ? "bg-[#cfe8ff] text-slate-900 shadow-sm hover:text-slate-900 " : "text-slate-700"
+                          activeIdx === idx
+                            ? "bg-[#cfe8ff] text-slate-900 shadow-sm hover:text-slate-900 "
+                            : "text-slate-700"
                         }`}
                         aria-current={activeIdx === idx ? "page" : undefined}
                       >
@@ -116,8 +121,18 @@ export default function Navbar() {
                         </button>
                         {/* dropdown */}
                         <div className="absolute left-0 mt-3 w-48 bg-white rounded-md shadow-lg p-2 hidden group-hover:block">
-                          <a href="#p1" className="block px-3 py-2 rounded hover:bg-slate-50">Design</a>
-                          <a href="#p2" className="block px-3 py-2 rounded hover:bg-slate-50">Development</a>
+                          <a
+                            href="#p1"
+                            className="block px-3 py-2 rounded hover:bg-slate-50"
+                          >
+                            Design
+                          </a>
+                          <a
+                            href="#p2"
+                            className="block px-3 py-2 rounded hover:bg-slate-50"
+                          >
+                            Development
+                          </a>
                         </div>
                       </div>
                     )}
@@ -139,7 +154,10 @@ export default function Navbar() {
                   </button>
                 </SheetTrigger>
 
-                <SheetContent side="bottom" className="rounded-t-2xl p-0 max-w-md mx-auto">
+                <SheetContent
+                  side="bottom"
+                  className="rounded-t-2xl p-0 max-w-md mx-auto"
+                >
                   <SheetHeader />
 
                   <div className="p-5">
@@ -153,7 +171,9 @@ export default function Navbar() {
                                 href={item.href}
                                 onClick={() => setActiveIdx(i)}
                                 className={`flex items-center gap-3 px-3 py-3 rounded-lg transition ${
-                                  activeIdx === i ? "bg-[#e6f4ff] font-semibold" : "hover:bg-slate-50"
+                                  activeIdx === i
+                                    ? "bg-[#e6f4ff] font-semibold"
+                                    : "hover:bg-slate-50"
                                 }`}
                               >
                                 <span className="w-7 h-7 rounded-full flex items-center justify-center bg-white shadow-sm">
@@ -170,12 +190,25 @@ export default function Navbar() {
                                     </span>
                                     <span>{item.label}</span>
                                   </div>
-                                  <ChevronDown size={16} className="transition-transform group-open:rotate-180" />
+                                  <ChevronDown
+                                    size={16}
+                                    className="transition-transform group-open:rotate-180"
+                                  />
                                 </summary>
 
                                 <div className="pl-3 mt-1 flex flex-col gap-1">
-                                  <a href="#p1" className="block px-3 py-2 rounded hover:bg-slate-50">Design</a>
-                                  <a href="#p2" className="block px-3 py-2 rounded hover:bg-slate-50">Development</a>
+                                  <a
+                                    href="#p1"
+                                    className="block px-3 py-2 rounded hover:bg-slate-50"
+                                  >
+                                    Design
+                                  </a>
+                                  <a
+                                    href="#p2"
+                                    className="block px-3 py-2 rounded hover:bg-slate-50"
+                                  >
+                                    Development
+                                  </a>
                                 </div>
                               </details>
                             )}
@@ -222,7 +255,9 @@ export default function Navbar() {
                                 href={item.href}
                                 onClick={() => setActiveIdx(i)}
                                 className={`flex items-center gap-3 px-3 py-3 rounded-lg transition ${
-                                  activeIdx === i ? "bg-[#e6f4ff] font-semibold" : "hover:bg-slate-50"
+                                  activeIdx === i
+                                    ? "bg-[#e6f4ff] font-semibold"
+                                    : "hover:bg-slate-50"
                                 }`}
                               >
                                 <span className="w-7 h-7 rounded-full flex items-center justify-center bg-white shadow-sm">
@@ -239,12 +274,25 @@ export default function Navbar() {
                                     </span>
                                     <span>{item.label}</span>
                                   </div>
-                                  <ChevronDown size={16} className="transition-transform group-open:rotate-180" />
+                                  <ChevronDown
+                                    size={16}
+                                    className="transition-transform group-open:rotate-180"
+                                  />
                                 </summary>
 
                                 <div className="pl-3 mt-1 flex flex-col gap-1">
-                                  <a href="#p1" className="block px-3 py-2 rounded hover:bg-slate-50">Design</a>
-                                  <a href="#p2" className="block px-3 py-2 rounded hover:bg-slate-50">Development</a>
+                                  <a
+                                    href="#p1"
+                                    className="block px-3 py-2 rounded hover:bg-slate-50"
+                                  >
+                                    Design
+                                  </a>
+                                  <a
+                                    href="#p2"
+                                    className="block px-3 py-2 rounded hover:bg-slate-50"
+                                  >
+                                    Development
+                                  </a>
                                 </div>
                               </details>
                             )}
