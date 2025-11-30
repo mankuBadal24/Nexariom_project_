@@ -36,7 +36,7 @@ export default function Navbar() {
 
   const nav = [
     { label: "Home", href: "#home", icon: HomeIcon },
-    { label: "Products", href: "#products", icon: ShoppingBag, dropdown: true },
+    { label: "Products", href: "#products", icon: ShoppingBag },
     { label: "Faqs", href: "#faqs", icon: HelpCircle },
     { label: "About", href: "#about", icon: Info },
     { label: "Visting Card", href: "#vcard", icon: CreditCard },
