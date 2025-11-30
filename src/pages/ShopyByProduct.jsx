@@ -1,7 +1,8 @@
 
 import React from "react";
-import { FaTshirt, FaFemale, FaChild, FaLeaf } from "react-icons/fa";
+import { FaTshirt, FaFemale, FaChild, FaLeaf, FaHome, FaHeartBroken } from "react-icons/fa";
 import { FaMobileAlt } from "react-icons/fa";
+import { FaHouseMedical } from "react-icons/fa6";
 import { MdAgriculture } from "react-icons/md";
 const categories = [
   {
@@ -39,6 +40,18 @@ const categories = [
     title: "Electronics",
     subtitle: "Latest gadgets",
     Icon: FaMobileAlt  ,
+  },
+  {
+    id: "Home & Kitchen",
+    title: "Home & Kitchen",
+    subtitle: "Essentials for your home",
+    Icon: FaHome  ,
+  },
+  {
+    id: "Health & Beauty",
+    title: "Health & Beauty",
+    subtitle: "Wellness products",
+    Icon: FaHeartBroken,
   },
 ];
 
