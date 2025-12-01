@@ -44,14 +44,14 @@ export const Hero = () => {
 
               <div className="mt-8 flex flex-wrap gap-4">
                 <a
-                  href="#products"
+                  href="/products"
                   className="inline-flex items-center px-6 py-3 rounded-lg bg-blue-600 text-white font-semibold shadow-md hover:bg-blue-700 transition"
                 >
                   Shop Now
                 </a>
 
                 <a
-                  href="#about"
+                  href="/about"
                   className="inline-flex items-center px-6 py-3 rounded-lg border border-gray-300 text-gray-800 bg-white hover:bg-black hover:text-white transition"
                 >
                   Learn More
