@@ -7,7 +7,8 @@ const sampleProducts = [
     id: 1,
     title: "Men's Casual Shirt",
     subtitle: "Premium quality cotton shirt",
-    image: "/src/assets/casual_shirt.avif",
+    image:
+      "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
     inStock: true,
     rating: 4.5,
     createdAt: "2025-07-01",
@@ -16,7 +17,8 @@ const sampleProducts = [
     id: 2,
     title: "Women's Summer Dress",
     subtitle: "Light & breezy style",
-    image: "/src/assets/women_summmer.avif",
+    image:
+      "https://images.unsplash.com/photo-1529903384028-929ae5dccdf1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
     inStock: true,
     rating: 4.8,
     createdAt: "2025-06-28",
@@ -25,7 +27,8 @@ const sampleProducts = [
     id: 3,
     title: "Kids Sneakers",
     subtitle: "Comfortable and durable",
-    image: "/src/assets/kidredsneaker.avif",
+    image:
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
     inStock: true,
     rating: 4.2,
     createdAt: "2025-06-25",
@@ -34,7 +37,8 @@ const sampleProducts = [
     id: 4,
     title: "Organic Basmati Rice",
     subtitle: "5kg package",
-    image: "/src/assets/OrganicBasmatiRice.webp",
+    image:
+      "https://www.nexariom.com/images/OrganicBasmatiRice.jpg",
     inStock: true,
     rating: 4.7,
     createdAt: "2025-05-05",
@@ -43,12 +47,12 @@ const sampleProducts = [
     id: 5,
     title: "Red Lentils",
     subtitle: "1kg pack of premium red lentils",
-    image: "/src/assets/RedLentils.webp",
+    image:
+      "https://www.nexariom.com/images/RedLentils.jpg",
     inStock: true,
     rating: 4.3,
     createdAt: "2025-04-15",
   },
-  // add more items for real use...
 ];
 
 const PAGE_SIZE = 20;
@@ -88,9 +92,14 @@ export const ProductContent = () => {
 
   const filtered = useMemo(() => {
     const lower = q.trim().toLowerCase();
-    let list = sampleProducts.filter((p) => (!lower ? true : p.title.toLowerCase().includes(lower)));
+    let list = sampleProducts.filter((p) =>
+      !lower ? true : p.title.toLowerCase().includes(lower)
+    );
+
     if (sortBy === "name") list = list.sort((a, b) => a.title.localeCompare(b.title));
-    else if (sortBy === "newest") list = list.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+    else if (sortBy === "newest")
+      list = list.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
     return list;
   }, [q, sortBy]);
 
@@ -109,20 +118,19 @@ export const ProductContent = () => {
       {/* HERO BAND */}
       <header className="bg-blue-500">
         <div className="max-w-7xl mx-auto px-6 py-12 text-center">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white">Our Products</h1>
-          <p className="text-blue-100 mt-3 max-w-2xl mx-auto">Discover our wide range of international products</p>
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white">
+            Our Products
+          </h1>
+          <p className="text-blue-100 mt-3 max-w-2xl mx-auto">
+            Discover our wide range of international products
+          </p>
         </div>
       </header>
 
       {/* SEARCH / CONTROLS */}
       <section className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-6 py-8 md:py-10">
-          {/* layout:
-              - stacked on small
-              - md+: search left, controls right with space between
-          */}
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-            {/* SEARCH (constrained width on md+) */}
             <div className="w-full md:w-[380px] lg:w-[420px] xl:w-[480px]">
               <div className="relative">
                 <div className="rounded-full bg-white shadow-[0_8px_24px_rgba(2,6,23,0.06)]">
@@ -134,14 +142,11 @@ export const ProductContent = () => {
                     }}
                     placeholder="Search for products..."
                     className="w-full rounded-full py-3 pl-5 pr-36 text-gray-700 placeholder-gray-400 outline-none text-sm md:text-base"
-                    aria-label="Search for products"
                   />
                 </div>
 
                 <button
-                  onClick={() => {}}
                   className="absolute right-1 top-1/2 -translate-y-1/2 inline-flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white rounded-full px-4 py-2 shadow-md text-sm md:text-base z-50"
-                  aria-label="Search"
                 >
                   <span className="flex items-center justify-center w-7 h-7 rounded-full bg-white/10">
                     <FiSearch />
@@ -151,7 +156,6 @@ export const ProductContent = () => {
               </div>
             </div>
 
-            {/* CONTROLS */}
             <div className="flex items-center gap-4 justify-end flex-none">
               <div className="text-gray-600 text-sm whitespace-nowrap">
                 Showing {filtered.length} of {sampleProducts.length} products
@@ -161,7 +165,6 @@ export const ProductContent = () => {
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
                 className="rounded-md border border-gray-200 px-3 py-2 bg-white text-sm"
-                aria-label="Sort products"
               >
                 <option value="name">Sort by Name</option>
                 <option value="newest">Sort by Newest</option>
@@ -170,7 +173,6 @@ export const ProductContent = () => {
               <button
                 onClick={() => setShowFilters((s) => !s)}
                 className="flex items-center gap-2 px-3 py-2 border border-blue-500 text-blue-600 rounded-md hover:bg-blue-50"
-                aria-expanded={showFilters}
               >
                 <HiOutlineAdjustments />
                 <span className="hidden sm:inline">Filters</span>
@@ -178,16 +180,17 @@ export const ProductContent = () => {
             </div>
           </div>
 
-          {/* optional filter panel */}
           {showFilters && (
-            <div id="filters-panel" className="mt-4 p-4 border rounded-md bg-gray-50">
-              <p className="text-sm text-gray-600">Filter options go here — categories, price, etc.</p>
+            <div className="mt-4 p-4 border rounded-md bg-gray-50">
+              <p className="text-sm text-gray-600">
+                Filter options go here — categories, price, etc.
+              </p>
             </div>
           )}
         </div>
       </section>
 
-      {/* PRODUCTS GRID */}
+      {/* PRODUCT GRID */}
       <section className="bg-gray-50 py-10">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
@@ -213,7 +216,9 @@ export const ProductContent = () => {
                 </div>
 
                 <div className="p-5">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">{p.title}</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                    {p.title}
+                  </h3>
                   <p className="text-gray-500 mb-4">{p.subtitle}</p>
 
                   <div className="flex items-center justify-between">
@@ -230,7 +235,7 @@ export const ProductContent = () => {
             ))}
           </div>
 
-          {/* pagination */}
+          {/* PAGINATION */}
           <div className="mt-10 flex justify-center">
             <nav className="inline-flex items-center gap-3">
               <button
