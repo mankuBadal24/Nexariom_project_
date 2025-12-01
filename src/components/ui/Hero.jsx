@@ -14,7 +14,7 @@ export const Hero = () => {
         .animated-hero-bg {
           background: linear-gradient(90deg, #dff6e9, #e1f3d8, #f8d4c8);
           background-size: hero200% 200%;
-          animation: heroGradient 10s ease-in-out infinite;
+          animation: heroGradient 5s ease-in-out infinite;
         }
       `}</style>
 
