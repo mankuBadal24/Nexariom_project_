@@ -14,49 +14,49 @@ const sampleProducts = [
     id: 1,
     title: "Men's Casual Shirt",
     subtitle: "Premium quality cotton shirt",
-    image: "/src/assets/Men'sCasualShirt (1).webp", // replace path
+    image: "https://www.nexariom.com/images/Men'sCasualShirt.jpg", // replace path
   },
   {
     id: 2,
     title: "Women's Winter Jacket",
     subtitle: "Warm and stylish",
-    image: "/src/assets/Women'sWinterJacket.avif",
+    image: "https://www.nexariom.com/images/Women'sWinterJacket.avif",
   },
   {
     id: 3,
     title: "Kids Sneakers",
     subtitle: "Comfortable and durable",
-    image: "/src/assets/KidsSneakers.webp",
+    image: "https://www.nexariom.com/images/KidsSneakers.webp",
   },
   {
     id: 4,
     title: "Organic Basmati Rice",
     subtitle: "5kg package",
-    image: "/src/assets/OrganicBasmatiRice.webp",
+    image: "https://www.nexariom.com/images/OrganicBasmatiRice.jpg",
   },
   {
     id: 5,
     title: "Kids Toy Set",
     subtitle: "Educational and fun",
-    image: "/src/assets/photo-1587654780291-39c9404d746b.avif",
+    image: "https://images.unsplash.com/photo-1587654780291-39c9404d746b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
   },
   {
     id: 6,
     title: "White Rice",
     subtitle: "premium white rice",
-    image: "/src/assets/WhiteRice.webp",
+    image: "https://www.nexariom.com/images/WhiteRice.jpeg",
   },
   {
     id: 7,
     title: "Kidney Beans",
     subtitle: "High-quality kidney beans",
-    image: "/src/assets/photo-1540420773420-3366772f4999.avif",
+    image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
   },
   {
     id: 8,
     title: "Irrigation System",
     subtitle: "Efficient water management",
-    image: "/src/assets/IrrigationSystem.webp",
+    image: "https://www.nexariom.com/images/IrrigationSystem.webp",
   },
 ];
 

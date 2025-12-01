@@ -1,6 +1,5 @@
-// src/components/Navbar.jsx (or wherever you keep it)
+// src/components/Navbar.jsx
 import React, { useEffect, useState } from "react";
-// eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import {
@@ -48,12 +47,11 @@ export default function Navbar() {
   // Keep active tab in sync with current path
   useEffect(() => {
     const idx = nav.findIndex((n) => {
-      // exact match for root, otherwise match path start (handles /products/subroute)
       if (n.to === "/") return location.pathname === "/";
       return location.pathname.startsWith(n.to);
     });
     setActiveIdx(idx >= 0 ? idx : 0);
-  }, [location.pathname]); // run whenever location changes
+  }, [location.pathname]);
 
   const SheetHeader = () => (
     <div className="p-4 border-b flex items-center justify-between">
@@ -89,19 +87,21 @@ export default function Navbar() {
             </motion.div>
           </Link>
 
-          {/* Center search pill (desktop & tablet) */}
-          <div className="hidden md:flex items-center justify-center flex-1">
-            <div className="relative w-full max-w-[700px]">
-              <div className="absolute left-4 top-1/2 -translate-y-1/2 opacity-70 pointer-events-none">
-                <Search size={18} />
+          {/* Center search pill (desktop & tablet) — ONLY on HOME */}
+          {location.pathname === "/" && (
+            <div className="hidden md:flex items-center justify-center flex-1">
+              <div className="relative w-full max-w-[700px]">
+                <div className="absolute left-4 top-1/2 -translate-y-1/2 opacity-70 pointer-events-none">
+                  <Search size={18} />
+                </div>
+                <input
+                  aria-label="Search products"
+                  placeholder="Search products..."
+                  className="w-full rounded-full py-3 pl-14 pr-4 shadow-lg border-0 outline-none bg-white"
+                />
               </div>
-              <input
-                aria-label="Search products"
-                placeholder="Search products..."
-                className="w-full rounded-full py-3 pl-14 pr-4 shadow-lg border-0 outline-none bg-white"
-              />
             </div>
-          </div>
+          )}
 
           {/* Right: Desktop nav (md+) and hamburger for mobile */}
           <div className="flex items-center gap-4">
@@ -113,9 +113,9 @@ export default function Navbar() {
                     <Link
                       to={item.to}
                       onClick={() => setActiveIdx(idx)}
-                      className={`px-4 py-2 text-sm font-medium rounded-md transition focus:outline-none focus:ring-0 hover:bg-[#cfe8ff] hover:text-blue-400  ${
+                      className={`px-4 py-2 text-sm font-medium rounded-md transition focus:outline-none focus:ring-0 hover:bg-[#cfe8ff] hover:text-blue-400 ${
                         activeIdx === idx
-                          ? "bg-[#cfe8ff] text-slate-900 shadow-sm hover:text-slate-900 "
+                          ? "bg-[#cfe8ff] text-slate-900 shadow-sm hover:text-slate-900"
                           : "text-slate-700"
                       }`}
                       aria-current={activeIdx === idx ? "page" : undefined}
@@ -127,7 +127,7 @@ export default function Navbar() {
               </ul>
             </div>
 
-            {/* Mobile: bottom sheet trigger (small screens) */}
+            {/* Mobile: bottom sheet trigger */}
             <div className="md:hidden flex items-center">
               <Sheet>
                 <SheetTrigger asChild>
@@ -175,7 +175,7 @@ export default function Navbar() {
               </Sheet>
             </div>
 
-            {/* medium screens show right-side sheet with identical header + body layout */}
+            {/* medium screen sheet */}
             <div className="hidden md:flex lg:hidden items-center">
               <Sheet>
                 <SheetTrigger asChild>
@@ -229,21 +229,23 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Small screen search pill below header */}
-        <div className="md:hidden mt-3 px-2">
-          <div className="flex justify-center">
-            <div className="relative w-full max-w-[520px]">
-              <div className="absolute left-3 top-1/2 -translate-y-1/2 opacity-70 pointer-events-none">
-                <Search size={16} />
+        {/* Small screen search pill — ONLY on HOME */}
+        {location.pathname === "/" && (
+          <div className="md:hidden mt-3 px-2">
+            <div className="flex justify-center">
+              <div className="relative w-full max-w-[520px]">
+                <div className="absolute left-3 top-1/2 -translate-y-1/2 opacity-70 pointer-events-none">
+                  <Search size={16} />
+                </div>
+                <input
+                  aria-label="Search products"
+                  placeholder="Search products..."
+                  className="w-full rounded-full py-3 pl-11 pr-4 shadow-sm border-0 outline-none bg-white"
+                />
               </div>
-              <input
-                aria-label="Search products"
-                placeholder="Search products..."
-                className="w-full rounded-full py-3 pl-11 pr-4 shadow-sm border-0 outline-none bg-white"
-              />
             </div>
           </div>
-        </div>
+        )}
       </nav>
     </header>
   );
