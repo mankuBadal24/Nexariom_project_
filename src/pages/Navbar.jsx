@@ -1,8 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
+// src/components/Navbar.jsx (or wherever you keep it)
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { Link, useLocation } from "react-router-dom";
 import {
   Menu,
-  X,
   Search,
   ChevronDown,
   Home as HomeIcon,
@@ -13,7 +14,6 @@ import {
   Mail,
 } from "lucide-react";
 
-// shadcn Sheet components (adjust import path if needed)
 import {
   Sheet,
   SheetTrigger,
@@ -24,6 +24,7 @@ import {
 const LOGO_URL = "https://www.nexariom.com/images/nexariom.png";
 
 export default function Navbar() {
+  const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [activeIdx, setActiveIdx] = useState(0);
 
@@ -35,20 +36,28 @@ export default function Navbar() {
   }, []);
 
   const nav = [
-    { label: "Home", href: "#home", icon: HomeIcon },
-    { label: "Products", href: "#products", icon: ShoppingBag },
-    { label: "Faqs", href: "#faqs", icon: HelpCircle },
-    { label: "About", href: "#about", icon: Info },
-    { label: "Visting Card", href: "#vcard", icon: CreditCard },
-    { label: "Contact", href: "#contact", icon: Mail },
+    { label: "Home", to: "/", icon: HomeIcon },
+    { label: "Products", to: "/products", icon: ShoppingBag },
+    { label: "Faqs", to: "/faqs", icon: HelpCircle },
+    { label: "About", to: "/about", icon: Info },
+    { label: "Visting Card", to: "/vcard", icon: CreditCard },
+    { label: "Contact", to: "/contact", icon: Mail },
   ];
 
-  /* Shared sheet header used inside every SheetContent so UI is consistent */
+  // Keep active tab in sync with current path
+  useEffect(() => {
+    const idx = nav.findIndex((n) => {
+      // exact match for root, otherwise match path start (handles /products/subroute)
+      if (n.to === "/") return location.pathname === "/";
+      return location.pathname.startsWith(n.to);
+    });
+    setActiveIdx(idx >= 0 ? idx : 0);
+  }, [location.pathname]); // run whenever location changes
+
   const SheetHeader = () => (
     <div className="p-4 border-b flex items-center justify-between">
       <h2 className="text-lg font-semibold">Menu</h2>
-
-      <SheetClose asChild></SheetClose>
+      <SheetClose asChild />
     </div>
   );
 
@@ -63,7 +72,7 @@ export default function Navbar() {
       <nav className="max-w-[1400px] mx-auto px-4 ">
         <div className="flex items-center justify-between space-x-20">
           {/* Left logo */}
-          <a href="#" className="flex items-center gap-3 select-none">
+          <Link to="/" className="flex items-center gap-3 select-none">
             <motion.div
               initial={{ y: -6, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -77,7 +86,7 @@ export default function Navbar() {
                 loading="lazy"
               />
             </motion.div>
-          </a>
+          </Link>
 
           {/* Center search pill (desktop & tablet) */}
           <div className="hidden md:flex items-center justify-center flex-1">
@@ -100,42 +109,18 @@ export default function Navbar() {
               <ul className="flex items-center gap-3 relative z-10">
                 {nav.map((item, idx) => (
                   <li key={idx} className="relative">
-                    {!item.dropdown ? (
-                      <a
-                        href={item.href}
-                        onClick={() => setActiveIdx(idx)}
-                        className={`px-4 py-2 text-sm font-medium rounded-md transition focus:outline-none focus:ring-0 hover:bg-[#cfe8ff] hover:text-blue-400  ${
-                          activeIdx === idx
-                            ? "bg-[#cfe8ff] text-slate-900 shadow-sm hover:text-slate-900 "
-                            : "text-slate-700"
-                        }`}
-                        aria-current={activeIdx === idx ? "page" : undefined}
-                      >
-                        {item.label}
-                      </a>
-                    ) : (
-                      <div className="group relative">
-                        <button className="flex items-center gap-1 px-4 py-2 text-sm font-medium rounded-md">
-                          <span>{item.label}</span>
-                          <ChevronDown size={14} className="opacity-80" />
-                        </button>
-                        {/* dropdown */}
-                        <div className="absolute left-0 mt-3 w-48 bg-white rounded-md shadow-lg p-2 hidden group-hover:block">
-                          <a
-                            href="#p1"
-                            className="block px-3 py-2 rounded hover:bg-slate-50"
-                          >
-                            Design
-                          </a>
-                          <a
-                            href="#p2"
-                            className="block px-3 py-2 rounded hover:bg-slate-50"
-                          >
-                            Development
-                          </a>
-                        </div>
-                      </div>
-                    )}
+                    <Link
+                      to={item.to}
+                      onClick={() => setActiveIdx(idx)}
+                      className={`px-4 py-2 text-sm font-medium rounded-md transition focus:outline-none focus:ring-0 hover:bg-[#cfe8ff] hover:text-blue-400  ${
+                        activeIdx === idx
+                          ? "bg-[#cfe8ff] text-slate-900 shadow-sm hover:text-slate-900 "
+                          : "text-slate-700"
+                      }`}
+                      aria-current={activeIdx === idx ? "page" : undefined}
+                    >
+                      {item.label}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -166,52 +151,20 @@ export default function Navbar() {
                         const Icon = item.icon;
                         return (
                           <li key={i}>
-                            {!item.dropdown ? (
-                              <a
-                                href={item.href}
-                                onClick={() => setActiveIdx(i)}
-                                className={`flex items-center gap-3 px-3 py-3 rounded-lg transition ${
-                                  activeIdx === i
-                                    ? "bg-[#e6f4ff] font-semibold"
-                                    : "hover:bg-slate-50"
-                                }`}
-                              >
-                                <span className="w-7 h-7 rounded-full flex items-center justify-center bg-white shadow-sm">
-                                  <Icon size={16} />
-                                </span>
-                                <span>{item.label}</span>
-                              </a>
-                            ) : (
-                              <details className="group rounded-md">
-                                <summary className="flex items-center justify-between px-3 py-3 cursor-pointer list-none">
-                                  <div className="flex items-center gap-3">
-                                    <span className="w-7 h-7 rounded-full flex items-center justify-center bg-white shadow-sm">
-                                      <ShoppingBag size={16} />
-                                    </span>
-                                    <span>{item.label}</span>
-                                  </div>
-                                  <ChevronDown
-                                    size={16}
-                                    className="transition-transform group-open:rotate-180"
-                                  />
-                                </summary>
-
-                                <div className="pl-3 mt-1 flex flex-col gap-1">
-                                  <a
-                                    href="#p1"
-                                    className="block px-3 py-2 rounded hover:bg-slate-50"
-                                  >
-                                    Design
-                                  </a>
-                                  <a
-                                    href="#p2"
-                                    className="block px-3 py-2 rounded hover:bg-slate-50"
-                                  >
-                                    Development
-                                  </a>
-                                </div>
-                              </details>
-                            )}
+                            <Link
+                              to={item.to}
+                              onClick={() => setActiveIdx(i)}
+                              className={`flex items-center gap-3 px-3 py-3 rounded-lg transition ${
+                                activeIdx === i
+                                  ? "bg-[#e6f4ff] font-semibold"
+                                  : "hover:bg-slate-50"
+                              }`}
+                            >
+                              <span className="w-7 h-7 rounded-full flex items-center justify-center bg-white shadow-sm">
+                                <Icon size={16} />
+                              </span>
+                              <span>{item.label}</span>
+                            </Link>
                           </li>
                         );
                       })}
@@ -250,52 +203,20 @@ export default function Navbar() {
                         const Icon = item.icon;
                         return (
                           <li key={i}>
-                            {!item.dropdown ? (
-                              <a
-                                href={item.href}
-                                onClick={() => setActiveIdx(i)}
-                                className={`flex items-center gap-3 px-3 py-3 rounded-lg transition ${
-                                  activeIdx === i
-                                    ? "bg-[#e6f4ff] font-semibold"
-                                    : "hover:bg-slate-50"
-                                }`}
-                              >
-                                <span className="w-7 h-7 rounded-full flex items-center justify-center bg-white shadow-sm">
-                                  <Icon size={16} />
-                                </span>
-                                <span>{item.label}</span>
-                              </a>
-                            ) : (
-                              <details className="group rounded-md">
-                                <summary className="flex items-center justify-between px-3 py-3 cursor-pointer list-none">
-                                  <div className="flex items-center gap-3">
-                                    <span className="w-7 h-7 rounded-full flex items-center justify-center bg-white shadow-sm">
-                                      <ShoppingBag size={16} />
-                                    </span>
-                                    <span>{item.label}</span>
-                                  </div>
-                                  <ChevronDown
-                                    size={16}
-                                    className="transition-transform group-open:rotate-180"
-                                  />
-                                </summary>
-
-                                <div className="pl-3 mt-1 flex flex-col gap-1">
-                                  <a
-                                    href="#p1"
-                                    className="block px-3 py-2 rounded hover:bg-slate-50"
-                                  >
-                                    Design
-                                  </a>
-                                  <a
-                                    href="#p2"
-                                    className="block px-3 py-2 rounded hover:bg-slate-50"
-                                  >
-                                    Development
-                                  </a>
-                                </div>
-                              </details>
-                            )}
+                            <Link
+                              to={item.to}
+                              onClick={() => setActiveIdx(i)}
+                              className={`flex items-center gap-3 px-3 py-3 rounded-lg transition ${
+                                activeIdx === i
+                                  ? "bg-[#e6f4ff] font-semibold"
+                                  : "hover:bg-slate-50"
+                              }`}
+                            >
+                              <span className="w-7 h-7 rounded-full flex items-center justify-center bg-white shadow-sm">
+                                <Icon size={16} />
+                              </span>
+                              <span>{item.label}</span>
+                            </Link>
                           </li>
                         );
                       })}
