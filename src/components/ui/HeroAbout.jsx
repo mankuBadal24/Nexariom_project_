@@ -4,7 +4,7 @@ import heroImg from "../../assets/nexirombanner.webp";
 export const AboutHero = () => {
   return (
     <>
-      {/* Inline Tailwind Gradient Animation (fixed background-size) */}
+      {/* Gradient Animation */}
       <style>{`
         @keyframes heroGradient {
           0% { background-position: 0% 50%; }
@@ -19,36 +19,46 @@ export const AboutHero = () => {
       `}</style>
 
       <section className="animated-hero-bg w-full">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-24">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 py-20 md:py-28">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+
             {/* LEFT TEXT */}
             <div className="order-2 lg:order-1">
               <h1
-                className="font-extrabold text-gray-900 leading-tight"
+                className="font-bold text-gray-900 leading-tight"
                 style={{
-                  fontSize: "clamp(32px, 6.5vw, 64px)",
-                  lineHeight: 1.02,
+                  fontSize: "clamp(36px, 5vw, 48px)",
+                  lineHeight: "1.15",
                 }}
               >
-                About Nexariom
-                <br />
-                Trade LLP
+                About Nexariom Trade LLP
               </h1>
 
-              <p className="mt-6 text-lg md:text-xl text-gray-700 max-w-2xl">
+              <p
+                className="mt-6 text-gray-700 max-w-2xl"
+                style={{
+                  fontSize: "clamp(17px, 2.2vw, 20px)",
+                  lineHeight: "1.65",
+                }}
+              >
                 Your trusted global trading partner, connecting quality products
                 from around the world with discerning customers.
               </p>
 
-              <p className="mt-6 text-base md:text-lg text-gray-700 max-w-2xl">
+              <p
+                className="mt-6 text-gray-700 max-w-2xl"
+                style={{
+                  fontSize: "clamp(15px, 2vw, 18px)",
+                  lineHeight: "1.7",
+                }}
+              >
                 Founded in Denmark, we specialize in international trade of
                 consumer goods, agricultural products, and machinery with a
-                commitment to quality, sustainability, and customer
-                satisfaction.
+                commitment to quality, sustainability, and customer satisfaction.
               </p>
             </div>
 
-            {/* RIGHT IMAGE (hidden on small screens) */}
+            {/* RIGHT IMAGE */}
             <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
               <div className="w-full max-w-lg hidden md:block">
                 <img
@@ -58,6 +68,7 @@ export const AboutHero = () => {
                 />
               </div>
             </div>
+
           </div>
         </div>
       </section>
