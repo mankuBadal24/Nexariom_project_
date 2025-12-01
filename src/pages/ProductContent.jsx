@@ -82,6 +82,15 @@ const sampleProducts = [
     inStock: true,
     rating: 4.4,
     createdAt: "2025-01-30",
+  },
+  {
+    id: 9,
+    title: "Kid's Jacket",
+    subtitle: "Warm and cozy",
+    image:"https://www.nexariom.com/images/KidsJacket.jpg",
+    inStock: true,
+    rating: 4.0,
+    createdAt: "2024-12-15",
   }
 ];
 
