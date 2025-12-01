@@ -221,14 +221,9 @@ export const ProductContent = () => {
                   </h3>
                   <p className="text-gray-500 mb-4">{p.subtitle}</p>
 
-                  <div className="flex items-center justify-between">
-                    <button className="text-sm bg-blue-600 text-white px-3 py-2 rounded-md shadow-sm hover:bg-blue-700">
-                      Explore More
-                    </button>
-
-                    <div>
-                      <Stars rating={p.rating ?? 0} />
-                    </div>
+                  {/* Footer: only stars, left-aligned */}
+                  <div className="flex items-center justify-start">
+                    <Stars rating={p.rating ?? 0} />
                   </div>
                 </div>
               </article>
