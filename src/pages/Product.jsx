@@ -1,12 +1,13 @@
 import React from 'react'
-import Navbar from '../pages/Navbar'
+// import Navbar from '../pages/Navbar'
 import { ProductContent } from '../pages/ProductContent'
 import Footer from './Footer'
+import NavbarSecond from './NavbarSecond'
 
 export const Product = () => {
   return (
     <div>
-      <Navbar/>
+      <NavbarSecond/>
       <div className="pt-20">
          <ProductContent/>
       </div>

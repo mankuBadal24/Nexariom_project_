@@ -1,4 +1,3 @@
-// src/pages/Product.jsx (updated ProductContent)
 import React, { useMemo, useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import { HiOutlineAdjustments } from "react-icons/hi";
@@ -49,6 +48,7 @@ const sampleProducts = [
     rating: 4.3,
     createdAt: "2025-04-15",
   },
+  // add more items for real use...
 ];
 
 const PAGE_SIZE = 20;
@@ -88,10 +88,7 @@ export const ProductContent = () => {
 
   const filtered = useMemo(() => {
     const lower = q.trim().toLowerCase();
-    let list = sampleProducts.filter((p) =>
-      !lower ? true : p.title.toLowerCase().includes(lower)
-    );
-
+    let list = sampleProducts.filter((p) => (!lower ? true : p.title.toLowerCase().includes(lower)));
     if (sortBy === "name") list = list.sort((a, b) => a.title.localeCompare(b.title));
     else if (sortBy === "newest") list = list.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
     return list;
@@ -100,6 +97,7 @@ export const ProductContent = () => {
   const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
   if (page > totalPages) setPage(1);
   const paginated = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+
   const goTo = (p) => {
     const num = Math.min(Math.max(1, p), totalPages);
     setPage(num);
@@ -119,11 +117,14 @@ export const ProductContent = () => {
       {/* SEARCH / CONTROLS */}
       <section className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-6 py-8 md:py-10">
-          <div className="flex flex-col md:flex-row md:items-center gap-6">
-            {/* left: search */}
-            <div className="flex-1">
-              <div className="relative max-w-3xl mx-auto md:mx-0">
-                {/* Input container: added right padding so button doesn't overlap with inner content */}
+          {/* layout:
+              - stacked on small
+              - md+: search left, controls right with space between
+          */}
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            {/* SEARCH (constrained width on md+) */}
+            <div className="w-full md:w-[380px] lg:w-[420px] xl:w-[480px]">
+              <div className="relative">
                 <div className="rounded-full bg-white shadow-[0_8px_24px_rgba(2,6,23,0.06)]">
                   <input
                     value={q}
@@ -137,10 +138,9 @@ export const ProductContent = () => {
                   />
                 </div>
 
-                {/* Button placed on top and given high z-index. No white accent element anymore. */}
                 <button
                   onClick={() => {}}
-                  className="absolute right-1 top-1/2 -translate-y-1/2 inline-flex items-center gap-2 bg-blue-500 hover:bg-purple-600 text-white rounded-full px-4 py-2 shadow-md text-sm md:text-base z-50"
+                  className="absolute right-1 top-1/2 -translate-y-1/2 inline-flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white rounded-full px-4 py-2 shadow-md text-sm md:text-base z-50"
                   aria-label="Search"
                 >
                   <span className="flex items-center justify-center w-7 h-7 rounded-full bg-white/10">
@@ -151,7 +151,7 @@ export const ProductContent = () => {
               </div>
             </div>
 
-            {/* right: counts & controls */}
+            {/* CONTROLS */}
             <div className="flex items-center gap-4 justify-end flex-none">
               <div className="text-gray-600 text-sm whitespace-nowrap">
                 Showing {filtered.length} of {sampleProducts.length} products
@@ -171,7 +171,6 @@ export const ProductContent = () => {
                 onClick={() => setShowFilters((s) => !s)}
                 className="flex items-center gap-2 px-3 py-2 border border-blue-500 text-blue-600 rounded-md hover:bg-blue-50"
                 aria-expanded={showFilters}
-                aria-controls="filters-panel"
               >
                 <HiOutlineAdjustments />
                 <span className="hidden sm:inline">Filters</span>
