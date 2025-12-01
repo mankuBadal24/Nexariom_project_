@@ -6,6 +6,7 @@ import Product from "./pages/Product.jsx";
 import About from "./pages/About.jsx";
 import VisitingCard from "./pages/VisitingCard.jsx";
 import Faq from "./pages/Faq.jsx";
+import { Contact } from "./pages/Contact.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 createRoot(document.getElementById("root")).render(
@@ -16,6 +17,7 @@ createRoot(document.getElementById("root")).render(
       <Route path="/about" element={<About />} />
       <Route path="/vcard" element={<VisitingCard />} />    {/* matches nav /vcard */}
       <Route path="/faqs" element={<Faq />} />             {/* FAQ page */}
+      <Route path="/contact" element={<Contact />} />     {/* Contact page */}
       {/* add other top-level routes as needed */}
     </Routes>
   </BrowserRouter>
