@@ -1,5 +1,5 @@
 import React from 'react'
-import NavbarSecond from './NavbarSecond'
+import Navbar from './Navbar'
 import Footer from './Footer'
 import { HeroFaq } from '../components/ui/HeroFaq'
 import { FaqQuestions } from './FaqQuestions'
@@ -7,7 +7,7 @@ import { FaqQuestions } from './FaqQuestions'
 export const Faq = () => {
   return (
     <div>
-      <NavbarSecond />
+      <Navbar />
       <div className="pt-20">
         <HeroFaq />
         <FaqQuestions />

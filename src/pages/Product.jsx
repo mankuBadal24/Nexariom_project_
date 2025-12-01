@@ -2,12 +2,12 @@ import React from 'react'
 // import Navbar from '../pages/Navbar'
 import { ProductContent } from '../pages/ProductContent'
 import Footer from './Footer'
-import NavbarSecond from './NavbarSecond'
+import Navbar from './Navbar'
 
 export const Product = () => {
   return (
     <div>
-      <NavbarSecond/>
+      <Navbar/>
       <div className="pt-20">
          <ProductContent/>
       </div>

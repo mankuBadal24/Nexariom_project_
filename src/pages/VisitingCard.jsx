@@ -1,5 +1,5 @@
 import React from "react";
-import NavbarSecond from "../pages/NavbarSecond"; 
+import Navbar from "../pages/Navbar"; 
 import Footer from "../pages/Footer";
 import VisitingCardContent from "./VisitingCardContent";
 
@@ -7,7 +7,7 @@ import VisitingCardContent from "./VisitingCardContent";
 const VisitingCard = () => {
   return (
     <div>
-      <NavbarSecond />
+      <Navbar />
       <div className="pt-20">
         <VisitingCardContent />
       </div>
