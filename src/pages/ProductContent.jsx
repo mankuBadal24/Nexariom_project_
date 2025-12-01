@@ -53,6 +53,36 @@ const sampleProducts = [
     rating: 4.3,
     createdAt: "2025-04-15",
   },
+  {
+    id: 6,
+    title: "Tractor",
+    subtitle: "Machinery ",
+    image: "https://www.nexariom.com/images/Tractor.avif"
+    ,
+    inStock: true,
+    rating: 4.6,
+    createdAt: "2025-03-20",
+  },
+  {
+    id: 7,
+    title: "Men's Jeans",
+    subtitle: "Stylish denim jeans",
+    image:
+      "https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+    inStock: true,
+    rating: 4.1,
+    createdAt: "2025-02-10",
+  },
+  {
+    id: 8,
+    title: "Women's Handbag",
+    subtitle: "Elegant leather handbag",
+    image:"https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+    ,
+    inStock: true,
+    rating: 4.4,
+    createdAt: "2025-01-30",
+  }
 ];
 
 const PAGE_SIZE = 20;
