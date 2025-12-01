@@ -1,7 +1,16 @@
 import React from 'react'
+import Navbar from '../pages/Navbar'
+import { ProductContent } from '../pages/ProductContent'
+import Footer from './Footer'
 
 export const Product = () => {
   return (
-    <div>Product</div>
+    <div>
+      <Navbar/>
+      <div className="pt-20">
+         <ProductContent/>
+      </div>
+      <Footer/>
+    </div>
   )
 }
