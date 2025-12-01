@@ -1,7 +1,8 @@
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
-import { Product } from "./pages/Product.jsx"; // <-- named import
+import Product from "./pages/Product.jsx"; // default import - change to { Product } if it's a named export
+import About from "./pages/About.jsx"; // default import of your About page
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 createRoot(document.getElementById("root")).render(
@@ -9,7 +10,8 @@ createRoot(document.getElementById("root")).render(
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="/products" element={<Product />} />
-      {/* add other top-level routes here if needed */}
+      <Route path="/about" element={<About />} />
+      {/* Add other top-level routes here */}
     </Routes>
   </BrowserRouter>
 );
