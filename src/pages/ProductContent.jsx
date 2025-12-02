@@ -37,8 +37,7 @@ const sampleProducts = [
     id: 4,
     title: "Organic Basmati Rice",
     subtitle: "5kg package",
-    image:
-      "https://www.nexariom.com/images/OrganicBasmatiRice.jpg",
+    image: "https://www.nexariom.com/images/OrganicBasmatiRice.jpg",
     inStock: true,
     rating: 4.7,
     createdAt: "2025-05-05",
@@ -47,8 +46,7 @@ const sampleProducts = [
     id: 5,
     title: "Red Lentils",
     subtitle: "1kg pack of premium red lentils",
-    image:
-      "https://www.nexariom.com/images/RedLentils.jpg",
+    image: "https://www.nexariom.com/images/RedLentils.jpg",
     inStock: true,
     rating: 4.3,
     createdAt: "2025-04-15",
@@ -57,8 +55,7 @@ const sampleProducts = [
     id: 6,
     title: "Tractor",
     subtitle: "Machinery ",
-    image: "https://www.nexariom.com/images/Tractor.avif"
-    ,
+    image: "https://www.nexariom.com/images/Tractor.avif",
     inStock: true,
     rating: 4.6,
     createdAt: "2025-03-20",
@@ -77,8 +74,8 @@ const sampleProducts = [
     id: 8,
     title: "Women's Handbag",
     subtitle: "Elegant leather handbag",
-    image:"https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-    ,
+    image:
+      "https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
     inStock: true,
     rating: 4.4,
     createdAt: "2025-01-30",
@@ -87,10 +84,64 @@ const sampleProducts = [
     id: 9,
     title: "Kid's Jacket",
     subtitle: "Warm and cozy",
-    image:"https://www.nexariom.com/images/KidsJacket.jpg",
+    image: "https://www.nexariom.com/images/KidsJacket.jpg",
     inStock: true,
     rating: 4.0,
     createdAt: "2024-12-15",
+  },
+  {
+    id: 10,
+    title: "Jasmine Rice",
+    subtitle: "fragrant jasmine rice",
+    image: "https://www.nexariom.com/images/JasmineRice.jpg",
+    inStock: true,
+    rating: 4.5,
+    createdAt: "2024-11-20",  
+  },
+  {
+    id: 11,
+    title: "Chickpeas",
+    subtitle: "1 bowl pack of premium chickpeas",
+    image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+    inStock: true,
+    rating: 4.2,
+    createdAt: "2024-10-05",
+  },
+  {
+    id: 12,
+    title: "Harvaster",
+    subtitle: "High-yield corn seeds for farming",
+    image: "https://www.nexariom.com/images/Harvester.jpg",
+    inStock: true,
+    rating: 4.6,
+    createdAt: "2024-09-12",
+  },
+  {
+    id: 13,
+    title: "Men's Formal suit",
+    subtitle: "Elegant formal wear",
+    image:"https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+    inStock: true,
+    rating: 4.3,
+    createdAt: "2024-08-22",
+  },
+  {
+    id: 14,
+    title: "Kid's Backpack",
+    subtitle: "Durable and spacious",
+    image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+    inStock: true,
+    rating: 4.1,
+    createdAt: "2024-07-18",
+  },
+  {
+    id: 15,
+    title:"Brown Rice",
+    subtitle: "Healthy brown rice",
+    image: "https://www.nexariom.com/images/BrownRice.webp",
+    inStock: true,
+    rating: 4.4,
+    createdAt: "2024-06-25",
   }
 ];
 
@@ -105,7 +156,9 @@ function Stars({ rating }) {
         {Array.from({ length: 5 }).map((_, i) => (
           <svg
             key={i}
-            className={`w-4 h-4 ${i < filled ? "text-yellow-400" : "text-gray-300"}`}
+            className={`w-4 h-4 ${
+              i < filled ? "text-yellow-400" : "text-gray-300"
+            }`}
             viewBox="0 0 20 20"
             fill={i < filled ? "currentColor" : "none"}
             xmlns="http://www.w3.org/2000/svg"
@@ -135,7 +188,8 @@ export const ProductContent = () => {
       !lower ? true : p.title.toLowerCase().includes(lower)
     );
 
-    if (sortBy === "name") list = list.sort((a, b) => a.title.localeCompare(b.title));
+    if (sortBy === "name")
+      list = list.sort((a, b) => a.title.localeCompare(b.title));
     else if (sortBy === "newest")
       list = list.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 
@@ -184,9 +238,7 @@ export const ProductContent = () => {
                   />
                 </div>
 
-                <button
-                  className="absolute right-1 top-1/2 -translate-y-1/2 inline-flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white rounded-full px-4 py-2 shadow-md text-sm md:text-base z-50"
-                >
+                <button className="absolute right-1 top-1/2 -translate-y-1/2 inline-flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white rounded-full px-4 py-2 shadow-md text-sm md:text-base z-50">
                   <span className="flex items-center justify-center w-7 h-7 rounded-full bg-white/10">
                     <FiSearch />
                   </span>
@@ -287,7 +339,9 @@ export const ProductContent = () => {
                     key={num}
                     onClick={() => goTo(num)}
                     className={`w-9 h-9 rounded-full flex items-center justify-center ${
-                      page === num ? "bg-blue-600 text-white shadow" : "bg-white"
+                      page === num
+                        ? "bg-blue-600 text-white shadow"
+                        : "bg-white"
                     }`}
                   >
                     {num}
