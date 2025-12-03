@@ -142,7 +142,25 @@ const sampleProducts = [
     inStock: true,
     rating: 4.4,
     createdAt: "2024-06-25",
-  }
+  },
+  {
+    id: 16,
+    title: "Men's Watch",
+    subtitle: "Luxury wrist watch",
+    image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+    inStock: true,
+    rating: 4.7,
+    createdAt: "2024-05-30",
+  },
+  {
+    id: 17,
+    title: "Kid's Bycycle",
+    subtitle: "Safe and fun",
+    image: "https://images.unsplash.com/photo-1485965120184-e220f721d03e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+    inStock: true,
+    rating: 4.2,
+    createdAt: "2024-04-14",
+  },
 ];
 
 const PAGE_SIZE = 20;
