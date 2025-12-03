@@ -1,6 +1,5 @@
-// src/components/ui/HeroContact.jsx
 import React from "react";
-import heroImg from "../../assets/nexirombanner.webp"; // change if different image
+import heroImg from "../../assets/nexirombanner.webp";  
 
 export const HeroContact = () => {
   return (

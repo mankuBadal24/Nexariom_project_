@@ -1,4 +1,3 @@
-// src/components/OurValues.jsx
 import React from "react";
 
 const ValueCard = ({ title, copy, children }) => {

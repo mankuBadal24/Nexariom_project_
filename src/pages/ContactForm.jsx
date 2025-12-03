@@ -1,4 +1,3 @@
-// src/components/ContactForm.jsx
 import React from "react";
 
 export const ContactForm = () => {
@@ -16,13 +15,11 @@ export const ContactForm = () => {
         </div>
 
         <div className="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-          {/* Form Card (left) */}
           <div className="lg:col-span-2">
             <div className="bg-white rounded-lg shadow-md p-8">
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
-                  // handle submit: you can integrate API here
                   alert("Message sent (mock)");
                 }}
                 className="space-y-6"
@@ -97,7 +94,7 @@ export const ContactForm = () => {
             </div>
           </div>
 
-          {/* Sidebar Card (right) - OPTIMIZED UI */}
+          
           <aside className="lg:col-span-1">
             <div className="relative">
               <article
@@ -105,7 +102,7 @@ export const ContactForm = () => {
                 role="region"
                 aria-label="Contact card"
               >
-                {/* Gradient top bar (curved) */}
+                
                 <div
                   className="h-3 w-full"
                   style={{
@@ -115,7 +112,7 @@ export const ContactForm = () => {
                 />
 
                 <div className="p-6 md:p-8 text-center">
-                  {/* Logo */}
+                  
                   <h3 className="text-3xl md:text-4xl font-extrabold tracking-tight leading-tight">
                     <span className="text-blue-500">Nexariom</span>
                     <span className="text-pink-500">Trade</span>
@@ -124,10 +121,9 @@ export const ContactForm = () => {
                   <p className="mt-3 text-sm font-semibold text-gray-800">Nexariom Trade LLP</p>
                   <p className="text-sm text-blue-500 mt-1">Global Trading Partners</p>
 
-                  {/* mini divider */}
                   <div className="mt-6 border-t pt-6 border-gray-100" />
 
-                  {/* Contact details list (compact & centered) */}
+                
                   <dl className="mt-4 text-sm text-gray-700 space-y-3">
                     <div className="flex items-start justify-center gap-3">
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="stroke-current text-gray-700 mt-0.5">
@@ -163,9 +159,9 @@ export const ContactForm = () => {
                     </div>
                   </dl>
 
-                  {/* Social icons small row */}
+                  
                   <div className="mt-6 flex items-center justify-center gap-3">
-                    {/* small muted circular icons */}
+                    
                     <a href="#" className="w-8 h-8 rounded-full bg-white border border-gray-100 text-blue-600 flex items-center justify-center hover:bg-blue-600 hover:text-white transition">
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className="stroke-current">
                         <path d="M22 12.07C22 6.48 17.52 2 11.93 2 6.33 2 1.86 6.48 1.86 12.07 1.86 17.08 5.66 21 10.26 21v-7h-2.5v-2.9H10.26V8.6c0-2.45 1.46-3.8 3.7-3.8 1.03 0 2.1.18 2.1.18v2.3h-1.17c-1.15 0-1.5.71-1.5 1.44v1.74h2.56l-.41 2.9H13.4V21c4.6 0 8.4-3.92 8.4-8.93z" strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round" />

@@ -1,4 +1,3 @@
-// src/components/Navbar.jsx
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
@@ -44,7 +43,7 @@ export default function Navbar() {
     { label: "Contact", to: "/contact", icon: Mail },
   ];
 
-  // Keep active tab in sync with current path
+
   useEffect(() => {
     const idx = nav.findIndex((n) => {
       if (n.to === "/") return location.pathname === "/";
@@ -87,7 +86,6 @@ export default function Navbar() {
             </motion.div>
           </Link>
 
-          {/* Center search pill (desktop & tablet) — ONLY on HOME */}
           {location.pathname === "/" && (
             <div className="hidden md:flex items-center justify-center flex-1">
               <div className="relative w-full max-w-[700px]">
@@ -103,9 +101,8 @@ export default function Navbar() {
             </div>
           )}
 
-          {/* Right: Desktop nav (md+) and hamburger for mobile */}
           <div className="flex items-center gap-4">
-            {/* Desktop nav links (hidden on small) */}
+           
             <div className="hidden lg:flex items-center gap-4">
               <ul className="flex items-center gap-3 relative z-10">
                 {nav.map((item, idx) => (
@@ -127,7 +124,7 @@ export default function Navbar() {
               </ul>
             </div>
 
-            {/* Mobile: bottom sheet trigger */}
+           
             <div className="md:hidden flex items-center">
               <Sheet>
                 <SheetTrigger asChild>
@@ -175,7 +172,7 @@ export default function Navbar() {
               </Sheet>
             </div>
 
-            {/* medium screen sheet */}
+        
             <div className="hidden md:flex lg:hidden items-center">
               <Sheet>
                 <SheetTrigger asChild>
@@ -229,7 +226,7 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Small screen search pill — ONLY on HOME */}
+       
         {location.pathname === "/" && (
           <div className="md:hidden mt-3 px-2">
             <div className="flex justify-center">

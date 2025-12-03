@@ -1,4 +1,3 @@
-// src/components/FaqQuestions.jsx
 import React, { useState } from "react";
 
 const tabs = [
@@ -85,7 +84,7 @@ const faqData = {
 
 export const FaqQuestions = () => {
   const [activeTab, setActiveTab] = useState("Shipping & Delivery");
-  // allow multiple open cards (behaves like screenshot)
+  
   const [openSet, setOpenSet] = useState(new Set());
 
   const toggleFAQ = (index) => {
@@ -97,7 +96,7 @@ export const FaqQuestions = () => {
     });
   };
 
-  // compute list for the active tab (All Questions flattens all)
+ 
   const currentList =
     activeTab === "All Questions"
       ? Object.values(faqData).flat()
@@ -105,7 +104,7 @@ export const FaqQuestions = () => {
 
   return (
     <section className="w-full bg-[#e9eef7] py-10 px-4 sm:px-6 lg:px-10">
-      {/* TABS - horizontally scrollable on mobile */}
+    
       <div className="mb-10">
         <div className="max-w-6xl mx-auto">
           <div className="overflow-x-auto -mx-4 px-4">
@@ -128,7 +127,7 @@ export const FaqQuestions = () => {
         </div>
       </div>
 
-      {/* Title */}
+    
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-8">
           {activeTab === "All Questions"
@@ -136,10 +135,10 @@ export const FaqQuestions = () => {
             : activeTab}
         </h2>
 
-        {/* FAQ LIST */}
+        
         <div className="space-y-6">
           {currentList.map((item, idx) => {
-            // create a stable index per tab so toggling won't conflict
+      
             const keyIndex = `${activeTab}-${idx}`;
             const isOpen = openSet.has(keyIndex);
 
@@ -160,7 +159,7 @@ export const FaqQuestions = () => {
                     </h3>
                   </div>
 
-                  {/* caret icon */}
+                 
                   <div className="flex-shrink-0 text-gray-600 mt-1">
                     <svg
                       className={`w-6 h-6 transform transition-transform ${
@@ -180,7 +179,6 @@ export const FaqQuestions = () => {
                   </div>
                 </button>
 
-                {/* answer: smooth collapse using max-height */}
                 <div
                   className={`mt-4 text-gray-700 leading-relaxed overflow-hidden transition-[max-height] duration-300 ${
                     isOpen ? "max-h-[600px]" : "max-h-0"
@@ -193,7 +191,7 @@ export const FaqQuestions = () => {
           })}
         </div>
 
-        {/* CTA: Still have questions */}
+     
         <div className="mt-12 bg-white rounded-2xl p-8 shadow-lg">
           <div className="max-w-4xl mx-auto text-center">
             <h3 className="text-2xl font-bold text-gray-800 mb-2">

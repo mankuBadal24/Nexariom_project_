@@ -1,13 +1,7 @@
-// FeaturedProducts.jsx
 import React from "react";
 import { Link } from "react-router-dom";
 
-/**
- * FeaturedProducts component
- * - Tailwind CSS based
- * - Responsive: 1 / 2 / 4 columns
- * - Buttons navigate to /products/:id
- */
+
 
 const sampleProducts = [
   {
@@ -93,7 +87,6 @@ export const FeaturedProducts = ({ products = sampleProducts }) => {
                 <p className="text-gray-500 mb-4">{p.subtitle}</p>
 
                 <div className="mt-2">
-                  {/* Navigate to /products/:id on tap */}
                   <Link
                     to="/products"
                     className="inline-block px-4 py-2 bg-sky-600 text-white text-sm font-medium rounded-md shadow-sm hover:bg-sky-700 transition"

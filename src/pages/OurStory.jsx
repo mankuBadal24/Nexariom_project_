@@ -1,4 +1,3 @@
-// src/components/OurStory.jsx
 import React from "react";
 
 export const OurStory = () => {

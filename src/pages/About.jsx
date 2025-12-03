@@ -1,8 +1,7 @@
-// src/pages/About.jsx
 import React from "react";
-import Navbar from "../pages/Navbar";      // <-- ensure path is correct
-import HeroAbout from "../components/ui/HeroAbout"; // match actual export name of your hero component
-import Footer from "../pages/Footer";      // <-- ensure path is correct
+import Navbar from "../pages/Navbar";      
+import HeroAbout from "../components/ui/HeroAbout"; 
+import Footer from "../pages/Footer";      
 import OurStory from "./OurStory";
 import OurLeaders from "./OurLeaders";
 import OurValues from "./OurValues";

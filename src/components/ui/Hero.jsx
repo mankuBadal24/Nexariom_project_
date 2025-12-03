@@ -4,8 +4,7 @@ import heroImg from "../../assets/nexirombanner.webp";
 export const Hero = () => {
   return (
     <>
-      {/* Inline Tailwind Gradient Animation */}
-      <style>{`
+          <style>{`
         @keyframes heroGradient {
           0% { background-position: 0% 50%; }
           50% { background-position: 100% 50%; }

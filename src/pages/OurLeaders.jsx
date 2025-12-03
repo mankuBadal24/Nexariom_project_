@@ -1,4 +1,3 @@
-// src/components/OurLeaders.jsx
 import React from "react";
 
 const LeaderCard = ({ name, role, description }) => {

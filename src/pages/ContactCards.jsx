@@ -1,4 +1,3 @@
-// src/components/ContactCards.jsx
 import React from "react";
 
 const contacts = [
