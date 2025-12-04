@@ -161,6 +161,15 @@ const sampleProducts = [
     rating: 4.2,
     createdAt: "2024-04-14",
   },
+  {
+    id: 18,
+    title:"Kid's Sunglasses",
+    subtitle: "Stylish protection",
+    image: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+    inStock: true,
+    rating: 4.5,
+    createdAt: "2024-03-19",
+  },
 ];
 
 const PAGE_SIZE = 20;
