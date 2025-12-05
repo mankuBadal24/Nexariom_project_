@@ -25,7 +25,6 @@ export const OurStory = () => {
             <h3 className="text-2xl font-semibold text-slate-900 mb-4">
               Our Beginning
             </h3>
-
             <div className="text-slate-700 space-y-4 leading-relaxed">
               <p>
                 Nexariom Trade LLP was established with a vision to create a
