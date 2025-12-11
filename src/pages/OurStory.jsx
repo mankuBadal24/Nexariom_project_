@@ -33,6 +33,7 @@ export const OurStory = () => {
                 into a respected global trade partner.
               </p>
 
+
               <p>
                 Our founders, Wilmer Drake and Mercia Sharp, combined their
                 expertise in international business and logistics to create a
